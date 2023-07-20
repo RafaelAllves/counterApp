@@ -10,7 +10,20 @@ void main() {
   ));
 }
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  var count = 0;
+
+  void increment() {
+    count++;
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,15 +32,16 @@ class HomePage extends StatelessWidget {
       ),
       body: Center(
         child: Text(
-          "Contador\n0",
+          "Contador\n$count",
           textAlign: TextAlign.center,
         )
       ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
-        onPressed: (){},
+        onPressed: (){
+          increment();
+        },
       ),
     );
   }
-
 }
