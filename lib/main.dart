@@ -29,6 +29,11 @@ class _HomePageState extends State<HomePage> {
     setState(() {});
   }
 
+  void reset() {
+    count = 0;
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,7 +54,12 @@ class _HomePageState extends State<HomePage> {
               decrement();
             },
           ),
-          
+          TextButton(
+            onPressed: () {
+              reset();
+            },
+            child: Text('Reiniciar'),
+          ),
           IconButton(
             icon: Icon(Icons.add),
             onPressed: () {
