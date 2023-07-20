@@ -24,6 +24,11 @@ class _HomePageState extends State<HomePage> {
     setState(() {});
   }
 
+  void decrement() {
+    count--;
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,12 +41,23 @@ class _HomePageState extends State<HomePage> {
           textAlign: TextAlign.center,
         )
       ),
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
-        onPressed: (){
-          increment();
-        },
-      ),
+      bottomSheet: Row(
+        children: [
+          IconButton(
+            icon: Icon(Icons.remove),
+            onPressed: () {
+              decrement();
+            },
+          ),
+          
+          IconButton(
+            icon: Icon(Icons.add),
+            onPressed: () {
+              increment();
+            },
+          )
+        ]
+      )
     );
   }
 }
