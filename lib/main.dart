@@ -38,18 +38,22 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Meu primeiro app"),
+        title: Text("Counter App"),
       ),
       body: Center(
         child: Text(
-          "Contador\n$count",
+          "$count",
           textAlign: TextAlign.center,
+          style: TextStyle(fontSize: 200)
         )
       ),
       bottomSheet: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           IconButton(
             icon: Icon(Icons.remove),
+            iconSize: 60,
             onPressed: () {
               decrement();
             },
@@ -58,15 +62,16 @@ class _HomePageState extends State<HomePage> {
             onPressed: () {
               reset();
             },
-            child: Text('Reiniciar'),
+            child: Text('RESET', style: TextStyle(fontSize: 30)),
           ),
           IconButton(
             icon: Icon(Icons.add),
+            iconSize: 60,
             onPressed: () {
               increment();
             },
-          )
-        ]
+          ),
+        ],
       )
     );
   }
